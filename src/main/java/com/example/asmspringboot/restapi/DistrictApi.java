@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/api/v1/district")
+@RequestMapping("/api/v1/districts")
 @CrossOrigin(value = "*", allowedHeaders = "*")
 public class DistrictApi {
     @Autowired

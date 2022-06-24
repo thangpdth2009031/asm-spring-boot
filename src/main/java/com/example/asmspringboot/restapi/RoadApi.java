@@ -4,11 +4,14 @@ import com.example.asmspringboot.entity.Road;
 import com.example.asmspringboot.service.RoadService;
 import com.example.asmspringboot.specification.SearchBody;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.relational.core.sql.In;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
-@RequestMapping("/api/v1/road")
+@RequestMapping("/api/v1/roads")
 public class RoadApi {
     @Autowired
     RoadService roadService;
@@ -16,10 +19,12 @@ public class RoadApi {
     @RequestMapping(method = RequestMethod.GET)
     public  ResponseEntity<?> getAllRoad(
             @RequestParam(name = "name", required = false) String name,
-            @RequestParam(name = "district_id", required = false) int districtId){
+            @RequestParam(name = "status", defaultValue = "1") Integer status,
+            @RequestParam(name = "district_id",defaultValue = "-1") Integer districtId){
         SearchBody searchBody = SearchBody.builder()
                 .roadName(name)
                 .districtId(districtId)
+                .status(status)
                 .build();
         return ResponseEntity.ok(roadService.findAllAndFilter(searchBody));
     }

@@ -10,4 +10,5 @@ import lombok.*;
 public class SearchBody {
     private String roadName;
     private int districtId;
+    private int status;
 }
