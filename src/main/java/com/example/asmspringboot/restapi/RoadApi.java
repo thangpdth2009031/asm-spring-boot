@@ -12,7 +12,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/api/v1/roads")
-@CrossOrigin(value = "*", allowedHeaders = "*")
+@CrossOrigin("*")
 public class RoadApi {
     @Autowired
     RoadService roadService;
