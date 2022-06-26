@@ -25,7 +25,7 @@ public class RoadService {
         if (searchBody.getRoadName() != null && searchBody.getRoadName().length() > 0){
             specification = specification.and(new RoadSpecification(new SearchCriteria("name", "=", searchBody.getRoadName())));
         }
-        if (searchBody.getStatus() != 0){
+        if (searchBody.getStatus() != 2){
             specification = specification.and(new RoadSpecification(new SearchCriteria("status", "=", searchBody.getStatus())));
         }
         if (searchBody.getDistrictId() != -1){
